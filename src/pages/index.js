@@ -11,7 +11,7 @@ import Spinner from '../components/Spinner';
 
 
 
-export default function Home({allPosts}) {
+export default function Home({allWeather}) {
   const router = useRouter()
 
   const [zip, setZip] = useState('');
@@ -30,10 +30,10 @@ export default function Home({allPosts}) {
     setLoading(false);
   };
  useEffect(()=>{
-   if(allPosts){
-    setWeather(allPosts)
+   if(allWeather){
+    setWeather(allWeather)
    }
- },[allPosts])
+ },[allWeather])
   if (loading) {
     return <Spinner />;
   } else {
@@ -90,10 +90,10 @@ return []
 
 export const getServerSideProps = async (params) => {
   const {query:{lat,long}}=params
-  const allPosts = await fetchCompanies(lat,long);
+  const allWeather = await fetchCompanies(lat,long);
   return {
     props: {
-      allPosts
+      allWeather
     },
   };
 };
