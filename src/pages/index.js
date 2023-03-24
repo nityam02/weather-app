@@ -18,7 +18,7 @@ export default function Home({allWeather}) {
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const url =`http://api.openweathermap.org/geo/1.0/zip?zip=${zip}&limit=5&appid=879fbc26ba43cef722495fa04540f27f`
+  const url =`https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&limit=5&appid=879fbc26ba43cef722495fa04540f27f`
 
   const fetchWeather = (e) => {
     e.preventDefault();
@@ -81,7 +81,7 @@ export default function Home({allWeather}) {
 
 const fetchCompanies = async (lat,long) => {
   if(lat && long){
-  const newUrl=`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=879fbc26ba43cef722495fa04540f27f`
+  const newUrl=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=879fbc26ba43cef722495fa04540f27f`
   const data= await axios.get(newUrl)
   return data.data.list[0]
 }
